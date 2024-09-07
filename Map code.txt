@@ -1,5 +1,8 @@
 -- map code --
 function map_setup()
+ --timers--
+ timer=0
+ anim_time=30 --30= 1 second
 --map title settings--
 --stabilirea de indicatori/ variabile pt interactiuni cu spriteuri--
 
@@ -8,9 +11,19 @@ function map_setup()
  door=2
  anim1=3
  anim2=4
+ anim3=5
  lose=6
  win=7
 end
+
+function update_map()
+ if(timer<0) then
+  toggle_tiles()
+  timer=anim_time
+ end
+ timer-=1
+end
+--functie pentru a scana harta in cautare de animatii--
 
 function draw_map()
  mapx=flr(p.x/16)*16
@@ -41,6 +54,16 @@ function swap_tile(x,y)
  mset(x,y,tile+1)
 end
 --functie pentru a schimba tileuri intre ele, specific pentru cand ridici o cheie--
+
+function unswap_tile(x,y)
+ tile=mget(x,y)
+ mset(x,y,tile-1)
+end
+
+function swap2_tile(x,y)
+ tile=mget(x,y)
+ mset(x,y,tile+2)
+end
 
 function get_key(x,y)
  p.keys+=1
