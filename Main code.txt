@@ -1,0 +1,15 @@
+-- game loop inspirat din tutorial --
+
+function _init()
+ map_setup()
+ --initializarea hartii--
+end
+
+function _update()
+end
+
+function _draw()
+cls() --curatarea ecranului principal de text--
+draw_map()
+--refresh la harta--
+end
