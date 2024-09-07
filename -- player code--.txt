@@ -25,6 +25,7 @@ function move_player()
  if(btnp(⬆️)) newy-=1
  if(btnp(⬇️)) newy+=1
  --controlul personajului--
+ interact(newx,newy)
  
  if (can_move(newx,newy)) then
  p.x=mid(0,newx,127)
@@ -33,3 +34,14 @@ function move_player()
  sfx(0)
  end
 end
+
+function interact(x,y)
+ if(is_tile(key,x,y)) then
+  get_key(x,y)
+  elseif (is_tile(door,x,y) and p.keys>0) then
+   open_door(x,y)
+   --interactiunea cu usile/ deschiderea lor-- 
+ end
+ 
+end
+--functie care, dupa ce ferifica daca e neva tile interactivi, adauga la contorul de chei--

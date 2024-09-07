@@ -3,13 +3,18 @@
 function _init()
  map_setup()
  --initializarea hartii--
+ make_player()
 end
 
 function _update()
+ move_player()
 end
 
 function _draw()
-cls() --curatarea ecranului principal de text--
-draw_map()
---refresh la harta--
+ cls() --curatarea ecranului principal de text--
+ draw_map()
+ --refresh la harta--
+ draw_player()
+ --refresh la personaj--
+ if (btn(❎)) show_inventory()
 end

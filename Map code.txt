@@ -13,6 +13,47 @@ function map_setup()
 end
 
 function draw_map()
+ mapx=flr(p.x/16)*16
+ mapy=flr(p.y/16)*16
+ camera(mapx*8,mapy*8)
+ --3 comenzi ce fac astfel incat camera sa urmareasca tileul pe care se afla personajul--
  map(0,0,0,0,128,64)
  -- functie care invoca harta desenata --
+end
+
+function is_tile(tile_type,x,y)
+--functie pentru ziduri/ teren inaccesibil--
+ tile=mget(x,y)
+ --aflam coordonatele tileului--
+ has_flag=fget(tile,tile_type)
+ return has_flag
+ --returneaza t/f--
+ --primeste tagul setat pt tile si coordonatele--
+end
+
+function can_move(x,y)
+--functie care ne indica daca ne putem misca intr-un anumit tile--
+ return not is_tile(wall,x,y)
+end
+
+function swap_tile(x,y)
+ tile=mget(x,y)
+ mset(x,y,tile+1)
+end
+--functie pentru a schimba tileuri intre ele, specific pentru cand ridici o cheie--
+
+function get_key(x,y)
+ p.keys+=1
+ swap_tile(x,y)
+ sfx(1)
+end
+--functie pentru a inregistra o cheie noua in "inventar"--
+
+function open_door(x,y)
+ p.keys-=1 --cheltuim o cheie--
+ swap_tile(x,y) --cheia nu mai e pe harta--
+ 
+ sfx(2)--declansam sunetul de usa deschisa--
+ 
  end
+--functie pentru a putea deschide usi
