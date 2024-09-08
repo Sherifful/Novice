@@ -1,0 +1,4 @@
+Disclaimer
+1. M-am folosit si inspirat de un tutorial pentru a ma ghida la partea de cod. Mai specific, ii urmaream pasii. Ce e diferit in schimb e ca am adaugat des comentarii ca sa inteleg ce si cum se intampla. Linkul: https://www.youtube.com/watch?v=J1wvvbVQ5zo&list=PLdLmU93eWisKpyk1WZywUSYAq5dkCPFIv&index=1
+2. Toate spriteurile sunt facute de mine
+3. Teoretic ar trebui sa fie o casa bantuita
